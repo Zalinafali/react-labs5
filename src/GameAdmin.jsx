@@ -6,17 +6,47 @@ class GameAdmin extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state = {oneName: '', twoName: ''};
+        this.state = {
+            oneName: 'One',
+            twoName: 'Two',
+            buttonOne: true,
+            buttonTwo: false,
+        };
+
+        this.handleButtonClick = this.handleButtonClick.bind(this);
       } 
+
+    handleButtonClick(){
+        if(this.state.buttonOne){
+            this.setState({
+                buttonOne: false,
+                buttonTwo: true
+            });
+        }
+        else{
+            this.setState({
+                buttonOne: true,
+                buttonTwo: false
+            });
+        }
+    }
 
     render(){
         return(
             <div>
                 <p>
-                    <PlayerOne name = {this.state.oneName}/>
+                    <PlayerOne 
+                        name = {this.state.oneName}
+                        isActive = {this.state.buttonOne} 
+                        handler = {this.handleButtonClick}
+                    />
                 </p>
                 <p>
-                    <PlayerTwo name = {this.state.twoName}/>
+                    <PlayerTwo 
+                        name = {this.state.twoName} 
+                        isActive = {this.state.buttonTwo}
+                        handler = {this.handleButtonClick}
+                    />
                 </p>
                 <p>
                     <p>
