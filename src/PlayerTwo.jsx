@@ -4,6 +4,9 @@ class PlayerTwo extends React.Component{
 
     constructor(props) {
         super(props);
+        this.state = {
+            counter: 0
+        };
     }
 
     render(){
@@ -17,10 +20,15 @@ class PlayerTwo extends React.Component{
                 </p>
                 <p>
                     <label>Played number of times:</label>
-                    <label>0</label>
+                    <label>{this.state.counter}</label>
                     <button 
                         type="button" 
-                        onClick={this.props.handler}
+                        onClick={() => {
+                            this.props.handler();
+                            this.setState(oldstate => ({
+                                counter: oldstate.counter + 1
+                            }));
+                        }}
                         disabled={this.props.isActive ? "diasbled" : ""}
                     >
                         {this.props.isActive ? "This user is playing now" : "Play"}

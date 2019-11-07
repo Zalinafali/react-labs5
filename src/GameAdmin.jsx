@@ -14,7 +14,7 @@ class GameAdmin extends React.Component{
         };
 
         this.handleButtonClick = this.handleButtonClick.bind(this);
-      } 
+    } 
 
     handleButtonClick(){
         if(this.state.buttonOne){
