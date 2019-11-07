@@ -1,6 +1,11 @@
 import React from 'react'
 
 class PlayerOne extends React.Component{
+
+    constructor(props) {
+        super(props);
+    }
+
     render(){
         return(
             <div>
@@ -8,7 +13,7 @@ class PlayerOne extends React.Component{
                     <label>Player One</label>
                 </p>
                 <p>
-                    <label>Name</label>
+                    <label>Name {this.props.name}</label>
                 </p>
                 <p>
                     <label>Played number of times:</label>
